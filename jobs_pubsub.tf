@@ -1,6 +1,7 @@
 resource "google_cloud_scheduler_job" "job" {
   count = length(keys(var.jobs_pubsub))
 
+  project   = var.google_project
   region    = var.google_region_alt
   time_zone = "Europe/Oslo"
 
