@@ -11,7 +11,7 @@ resource "google_cloud_scheduler_job" "job" {
 
   pubsub_target {
     topic_name = "projects/${var.google_project}/topics/${lookup(element(values(var.jobs_pubsub), count.index), "topic_name")}"
-    data       = base64encode(lookup(element(values(var.jobs_pubsub), count.index), "topic_name"))
+    data       = base64encode(lookup(element(values(var.jobs_pubsub), count.index), "message"))
   }
 
   depends_on = [google_project_service.cloud_scheduler]
