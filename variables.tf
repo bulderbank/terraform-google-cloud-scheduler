@@ -8,6 +8,14 @@ variable "created_by" {}
 
 variable "created_on" {}
 
+variable "updated_by" {
+  default = ""
+}
+
+variable "updated_on" {
+  default = ""
+}
+
 variable "jobs_pubsub" {
   default = ""
 }

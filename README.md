@@ -10,6 +10,8 @@ module "scheduler_example" {
 
   created_on = "2020-01-03"
   created_by = "fredrick-myrvoll"
+  updated_on = "2020-03-24"
+  updated_by = "fredrick-myrvoll"
 
   environment       = var.environment
   google_project    = var.google_project
@@ -17,11 +19,14 @@ module "scheduler_example" {
 
   jobs_pubsub = {
     exampleJob = {
-      name        = var.example_job_name
-      description = var.example_job_description
-      schedule    = var.example_job_schedule
-      topic_name  = var.example_jobs_pubsub_topic
-      message     = var.example_jobs_pubsub_message
+      name        = "example-job-name"
+      description = "Runs a test job every 5 minutes"
+      schedule    = */5 * * * *
+      topic_name  = "example-topic-name"
+      message     = "Example message payload, must be set."
+      attributes  = {
+        "key":"value",
+      }
     }
   }
 }
