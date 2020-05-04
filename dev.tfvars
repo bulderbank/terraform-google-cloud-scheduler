@@ -11,11 +11,11 @@ jobs_pubsub = {
   exampleJob = {
     name        = "example-job-name"
     description = "Runs a test job every 5 minutes"
-    schedule    = */5 * * * *
+    schedule    = "*/5 * * * *"
     topic_name  = "example-topic-name"
     message     = "Example message payload, must be set."
-    attributes  = {
-      "key":"value",
+    attributes = {
+      "key" : "value",
     }
   }
 }
