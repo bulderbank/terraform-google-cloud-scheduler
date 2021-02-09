@@ -14,6 +14,4 @@ resource "google_cloud_scheduler_job" "job" {
     data       = base64encode(lookup(element(values(var.jobs_pubsub), count.index), "message"))
     attributes = lookup(element(values(var.jobs_pubsub), count.index), "attributes")
   }
-
-  depends_on = [google_project_service.cloud_scheduler]
 }
